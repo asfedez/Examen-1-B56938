@@ -5,22 +5,56 @@
  */
 package vista;
 
+import controlador.Controlador_FRM_VentanaBiblioteca;
+
 /**
  *
  * @author administrador
  */
 public class FRM_VentanaBiblioteca extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FRM_VentanaBiblioteca
-     */
+    Controlador_FRM_VentanaBiblioteca controlador;
+    
     public FRM_VentanaBiblioteca() {
         initComponents();
-     
+        controlador= new Controlador_FRM_VentanaBiblioteca(this);
+        this.panelBotones1.agregarEventos(controlador);
         
     }
-
-
+    
+    
+    public String[] getInformacion()
+    {
+        return this.panelInformacion1.getInformacion();
+    }
+    
+    public String devolverNumeroPrestamo()
+    {
+        return this.panelInformacion1.devolverNumeroDePrestamo();
+    }
+    
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.panelInformacion1.mostrarInformacion(arreglo);
+    }
+            
+    public void habilitarAgregar()
+    {
+        this.panelBotones1.habilitarAgregar();
+        this.panelInformacion1.habilitarEdicion();
+    }
+    
+    public void inicializarGUI()
+    {
+        this.panelInformacion1.inicializarGUI();
+        this.panelBotones1.inicializarGUI();
+    }
+    
+    public void habilitarEdicion()
+    {
+        this.panelBotones1.habilitarEdicion();
+        this.panelInformacion1.habilitarEdicion();
+    }
     
     
     

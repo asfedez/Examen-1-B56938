@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author administrador
- */
+
 public class MetodosBiblioteca {
     
     ArrayList<PrestamoLibro> listaDePrestamos;
@@ -24,7 +17,8 @@ public class MetodosBiblioteca {
     
     public void agregarPrestamoDeLibro(String arreglo[])
     {
-        listaDePrestamos.add(new PrestamoLibro(arreglo[0],arreglo[1],arreglo[2],arreglo[3]));
+        PrestamoLibro temp = new PrestamoLibro(arreglo[0],arreglo[1],arreglo[2],arreglo[3]);
+        listaDePrestamos.add(temp);
     }
     
     
