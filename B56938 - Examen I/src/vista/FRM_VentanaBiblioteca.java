@@ -19,6 +19,7 @@ public class FRM_VentanaBiblioteca extends javax.swing.JFrame {
         initComponents();
         controlador= new Controlador_FRM_VentanaBiblioteca(this);
         this.panelBotones1.agregarEventos(controlador);
+        this.panelInformacion1.agregarEventos(controlador);
         
     }
     

@@ -1,23 +1,33 @@
 
 package vista;
 
+import controlador.Controlador_FRM_VentanaBiblioteca;
+
 
 public class PanelInformacion extends javax.swing.JPanel {
 
+    Controlador_FRM_VentanaBiblioteca controlador;
     
     public PanelInformacion() {
         initComponents();
         inicializarGUI();
+      
+        
+    }
+    
+    
+    public void agregarEventos(Controlador_FRM_VentanaBiblioteca controlador)
+    {
+        this.controlador=controlador;
     }
    
-     public String[] getInformacion()
+   public String[] getInformacion()
    {
        String arreglo[] = new String[4];
        arreglo[0]=txtNumeroPrestamo.getText();
        arreglo[1]=txtNombreUsuario.getText();
        arreglo[2]=txtCedulaUsuario.getText();
        arreglo[3]=txtISBN.getText();
-
        return arreglo;
    }
    
@@ -63,7 +73,8 @@ public class PanelInformacion extends javax.swing.JPanel {
        this.txtISBN.setEnabled(true);
       
    }
-    
+   
+  
 
     
     @SuppressWarnings("unchecked")
@@ -86,6 +97,12 @@ public class PanelInformacion extends javax.swing.JPanel {
         jLabel3.setText("Cédula del usuario:");
 
         jLabel4.setText("ISBN del libro:");
+
+        txtNumeroPrestamo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumeroPrestamoKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -128,6 +145,14 @@ public class PanelInformacion extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNumeroPrestamoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroPrestamoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode()==10)
+        {
+            controlador.buscar();
+        }
+    }//GEN-LAST:event_txtNumeroPrestamoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
